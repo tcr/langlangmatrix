@@ -2,45 +2,76 @@
 
 <html>
 <head>
-  <title>Language Compiler Matrix</title>
+  <title>Language &harr; Language Matrix</title>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <style>
-  td.yay { background: #7f7; padding: 0; }
-  td.yay a { display: block; padding: 8px; font-weight: bold; }
+  td.yay { padding: 0; }
+  td.yay a { display: block; padding: 8px; font-weight: bold; background: #8f8; }
+  td.yay a.runtime { background: #bf8; }
+  td.yay a.sourcesource { background: #8fb; }
   td.na { background: #ddd; }
   td.no { text-align: center; font-size: 0.8em; }
   </style>
 </head>
 <body>
+  <a href="https://github.com/tcr/langlangmatrix.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
   <div class="container-fluid">
-    <h1>The Language Cross-Compiler Matrix</h1>
-    <p>Compiling languages to other languages is fun! None of these projects are vetted/assured to be complete. Submit your own compiler or add corrections with a pull request. This list prefers source compilers over interpreters, but the line is fuzzy.</p>
+    <h1>The Language &harr; Language Matrix</h1>
+    <p style="margin-right: 100px">Languages running in other languages is fun! Source-to-source compilers, interpreters, and bytecode compilers all count. None of these projects are vetted/assured to be complete. Submit your own compiler or add corrections with a pull request.</p>
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th colspan="10">Target Language</th>
+          <th colspan="15" style="text-align: center">Target</th>
         </tr>
         <tr>
           <th>&nbsp;</th>
           <th>&nbsp;</th>
+          <th>JavaScript<sup><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS">[1]</a></sup></th>
           <th>C/C++</th>
           <th>Java</th>
           <th>Ruby</th>
-          <th>JavaScript<sup><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS">[1]</a></sup></th>
           <th>PHP</th>
           <th>Scala</th>
           <th>C#</th>
           <th>Clojure</th>
+          <th>Python</th>
+          <th>Lua</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th rowspan="10">Source Language</th>
+          <th rowspan="15">Source</th>
+          <th>JavaScript</th>
+          <td class="na"></td>
+          <td class="yay"><a href="http://github.com/tcr/gum">Gum</a></td>
+          <td class="yay">
+            <a href="https://developer.mozilla.org/en-US/docs/Rhino" class="runtime">Rhino</a>
+            <a href="http://dynjs.org/">dynjs</a>
+            <a href="http://github.com/tcr/mug">Mug</a>
+          </td>
+          <td class="yay">
+            <a href="http://web.archive.org/web/20100201180650/http://tenderlovemaking.com/2007/04/15/converting-javascript-to-ruby-with-rkelly/">RKelly</a>
+          </td>
+          <td class="yay">
+            <a href="http://include-once.org/p/phpjs/">phpjs</a>
+          </td>
+          <td class="yay"><a href="https://github.com/js-scala/js-scala">js.scala</a></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="yay">
+            <a href="http://github.com/tcr/colony-js">Colony</a>
+          </td>
+        </tr>
+        <tr>
           <th>C/C++</th>
+          <td class="yay"><a href="http://emscripten.org/">Emscripten</a></td>
           <td class="na"></td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
-          <td class="yay"><a href="http://emscripten.org/">Emscripten</a></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
@@ -48,15 +79,20 @@
         </tr>
         <tr>
           <th>Java</th>
-          <td class="no">N/A</td>
-          <td class="na"></td>
-          <td class="no">N/A</td>
           <td class="yay">
             <a href="http://code.google.com/webtoolkit/">Google Web Toolkit (GWT)</a>
             <a href="http://j2s.sourceforge.net/">Java2Script</a>
             <a href="http://www.j2js.com/">j2js</a>
             <a href="http://st-js.sourceforge.net/">Strongly-Typed JavaScript (STJS)</a>
           </td>
+          <td class="yay">
+            <a href="http://code.google.com/p/cibyl/">Cibyl (J2ME)</a>
+            <a href="http://nestedvm.ibex.org/">NestedVM</a>
+          </td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
@@ -64,6 +100,14 @@
         </tr>
         <tr>
           <th>Ruby</th>
+          <td class="yay">
+            <a href="http://hotruby.yukoba.jp/">HotRuby</a>
+            <a href="https://github.com/whitequark/coldruby">ColdRuby</a>
+            <a href="http://rb2js.rubyforge.org/">rb2js</a>
+            <a href="https://github.com/jessesielaff/red">Red</a>
+            <a href="https://github.com/adambeynon/opal">Opal</a>
+            <a href="https://github.com/mattknox/8ball">8ball</a>
+          </td>
           <td class="yay"><a href="http://rubyforge.org/projects/ruby2c/">ruby2c</a></td>
           <td class="yay"><a href="https://github.com/headius/rubyflux">RubyFlux</a></td>
           <td class="na"></td>
@@ -72,47 +116,41 @@
           <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
-        </tr>
-        <tr>
-          <th>JavaScript</th>
-          <td class="yay"><a href="http://github.com/tcr/gum">Gum</a></td>
-          <td class="yay"><a href="http://github.com/tcr/mug">Mug</a></td>
-          <td class="no">N/A</td>
-          <td class="na"></td>
-          <td class="no">N/A</td>
-          <td class="yay"><a href="https://github.com/js-scala/js-scala">js.scala</a></td>
-          <td class="no">N/A</td>
           <td class="no">N/A</td>
         </tr>
         <tr>
           <th>PHP</th>
-          <td class="yay"><a href="https://github.com/facebook/hiphop-php">HipHop Compiler</a></td>
+          <td class="yay">
+            <a href="https://github.com/facebook/hiphop-php">HipHop Compiler</a>
+            <a href="http://phpjs.hertzen.com/">php.js</a>
+          </td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
         </tr>
         <tr>
           <th>Scala</th>
-          <td class="no">N/A</td>
-          <td class="no">N/A</td>
-          <td class="no">N/A</td>
           <td class="yay">
             <a href="http://scalagwt.github.com/">Scala+GWT</a>
           </td>
           <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
         </tr>
         <tr>
           <th>C#</th>
-          <td class="no">N/A</td>
-          <td class="no">N/A</td>
-          <td class="no">N/A</td>
           <td class="yay">
             <a href="http://www.saltarelle-compiler.com/">Saltarelle</a>
             <a href="http://sharpkit.net/">SharpKit (Commercial)</a>
@@ -121,15 +159,57 @@
           </td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="no">N/A</td>
         </tr>
         <tr>
           <th>Clojure</th>
-          <td class="no">N/A</td>
-          <td class="no">N/A</td>
-          <td class="no">N/A</td>
           <td class="yay"><a href="https://github.com/clojure/clojurescript">ClojureScript</a></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>Python</th>
+          <td class="yay">
+            <a href="http://pyjaco.org/demo">Pyjaco</a>
+            <a href="https://github.com/anandology/pyjs">pyjs</a>
+            <a href="http://www.skulpt.org/">Skulpt</a>
+            <a href="https://github.com/p2k/PyCow">PyCow</a>
+            <a href="http://brython.info/index_en.html">Brython</a>
+          </td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>Lua</th>
+          <td class="yay">
+            <a href="https://github.com/mherkender/lua.js">lua2js</a>
+            <a href="https://github.com/humbletim/ljs" class="runtime">ljs</a>
+          </td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
           <td class="no">N/A</td>
