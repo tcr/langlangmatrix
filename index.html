@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Language Compiler Matrix</title>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <style>
+  td.yay { background: #7f7; padding: 0; }
+  td.yay a { display: block; padding: 8px; font-weight: bold; }
+  td.na { background: #ddd; }
+  td.no { text-align: center; font-size: 0.8em; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1>The Language Cross-Compiler Matrix</h1>
+    <p>Compiling languages to other languages is fun! None of these projects are vetted/assured to be complete. Submit your own compiler or add corrections with a pull request. This list prefers source compilers over interpreters, but the line is fuzzy.</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="10">Target Language</th>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+          <th>C/C++</th>
+          <th>Java</th>
+          <th>Ruby</th>
+          <th>JavaScript<sup><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS">[1]</a></sup></th>
+          <th>PHP</th>
+          <th>Scala</th>
+          <th>C#</th>
+          <th>Clojure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="10">Source Language</th>
+          <th>C/C++</th>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>Java</th>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="yay">
+            <a href="http://code.google.com/webtoolkit/">Google Web Toolkit (GWT)</a>
+            <a href="http://j2s.sourceforge.net/">Java2Script</a>
+            <a href="http://www.j2js.com/">j2js</a>
+            <a href="http://st-js.sourceforge.net/">Strongly-Typed JavaScript (STJS)</a>
+          </td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>Ruby</th>
+          <td class="yay"><a href="http://rubyforge.org/projects/ruby2c/">ruby2c</a></td>
+          <td class="yay"><a href="https://github.com/headius/rubyflux">RubyFlux</a></td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>JavaScript</th>
+          <td class="yay"><a href="http://github.com/tcr/gum">Gum</a></td>
+          <td class="yay"><a href="http://github.com/tcr/mug">Mug</a></td>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="yay"><a href="https://github.com/js-scala/js-scala">js.scala</a></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>PHP</th>
+          <td class="yay"><a href="https://github.com/facebook/hiphop-php">HipHop Compiler</a></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>Scala</th>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="yay">
+            <a href="http://scalagwt.github.com/">Scala+GWT</a>
+          </td>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>C#</th>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+          <td class="no">N/A</td>
+        </tr>
+        <tr>
+          <th>Clojure</th>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="no">N/A</td>
+          <td class="na"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
