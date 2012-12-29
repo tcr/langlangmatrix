@@ -13,6 +13,8 @@
   td.na { background: #ddd !important; }
   td.no { text-align: center; }
   .desc { margin-right: 100px; font-size: 1.2em; margin-top: 16px;  }
+  .hover { background: #def; }
+  #fun { font-size: 20px; padding: 8px 0; line-height: 1.4; }
   </style>
 </head>
 <body>
@@ -20,15 +22,16 @@
 
   <div class="container-fluid">
     <h1>The Language &hArr; Language Matrix</h1>
-    <p class="desc"><b>Languages running in other languages!</b> Source-to-source compilers, interpreters, and bytecode compilers. None of these projects are vetted/assured to be complete. <a href="https://github.com/tcr/langlangmatrix/pulls">Submit your own compiler or add corrections.</a></p>
+    <p class="desc"><b>Languages running in other languages!</b> Source-to-source compilers, interpreters, and bytecode compilers. None of these projects are vetted/assured to be complete. <a href="https://github.com/tcr/langlangmatrix/pulls">Submit your own link or add corrections.</a></p>
+    <p id="fun"></p>
     <p>Run by <a href="https://github.com/tcr">Tim Cameron Ryan</a>.</p>
 
-    <table class="table table-bordered table-hover">
-      <tr>
+    <table class="table table-bordered" id="matrix">
+      <tr class="heading first-heading">
         <th rowspan="15">Source</th>
         <th colspan="15" style="text-align: center">Target</th>
       </tr>
-      <tr>
+      <tr class="heading">
         <th>&nbsp;</th>
         <th>JavaScript<sup><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS">[1]</a></sup></th>
         <th>C/C++</th>
@@ -96,9 +99,7 @@
         <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
-        <td class="yay">
-          <a href="https://github.com/whymirror/unholy.git">UNHOLY</a>
-        </td>
+        <td class="no">N/A</td>
         <td class="no">N/A</td>
       </tr>
       <tr>
@@ -121,7 +122,9 @@
         <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
-        <td class="no">N/A</td>
+        <td class="yay">
+          <a href="https://github.com/whymirror/unholy.git">UNHOLY</a>
+        </td>
         <td class="no">N/A</td>
       </tr>
       <tr>
@@ -242,5 +245,82 @@
   })();
 
 </script>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script>
+
+function range (a, b) {
+  return Array(b - a + 1).join(' ').split('').map(function (_, i) { 
+    return i + a;
+  });
+}
+
+function randomize (a) {
+  return a.slice().sort(function () { return Math.random() < 0.5 ? 1 : -1; });
+}
+
+$(function () {
+  $('#matrix').on('mousemove', 'td, th', function (e) {
+    $('.hover').removeClass('hover');
+    var $tr = $(this).parent();
+    $tr.filter(':not(.heading)').addClass('hover');
+    $tr.siblings(':not(.first-heading)').add($tr)
+      .find('*:nth-child(' + ($(this).index() + 1) + ')').addClass('hover');
+  });
+
+  // The fun game at the top.
+
+  var tds = $('#matrix td'), width = Math.floor(Math.sqrt(tds.length));
+  tds = tds.toArray().map(function (t) {
+    return $(t).find('a').toArray().map(function (a) {
+      return $(a);
+    });
+  });
+  $('#fun').on('mouseover', function () {
+    $('#fun').addClass('hover');
+  })
+  $('#fun').on('mouseout', function () {
+    $('#fun').removeClass('hover');
+  })
+  function newTrick () {
+    if ($('#fun').hasClass('hover')) {
+      return;
+    }
+    var idx = Math.floor(Math.random()*100);
+    var t = tds[idx];
+    if (!t.length) {
+      return newTrick();
+    }
+    var links = [randomize(t)[0]];
+    // Found random one, find next.
+    while (true) {
+      var rar = randomize(range(0, width))[0];
+      var idx = (width * (idx % width)) + rar;
+      var t2 = tds[idx];
+      if (!t2.length) {
+        return newTrick();
+      }
+      if (t2 == t) {
+        // Don't be too obvious.
+        if (links.length == 2 && Math.random() < 0.4) {
+          continue;
+        }
+        
+        $('#fun').html('&rArr; Try running ' + links.map(function ($a) {
+          var pos = $a.parent().index();
+          var $to = $a.parent().parent().siblings().eq(1).find('th');
+          return '<a href="' + $a.prop('href') + '">' + $a.text() + '</a> (<i>' + $a.parent('').siblings().eq(0).text() + ' &rarr; ' + $to.eq(pos).text().replace('[1]', '') + '</i>)';
+        }).join(' in ') + '!')
+        return;
+      } else {
+        links.push(randomize(t2)[0]);
+      }
+    }
+  }
+  
+  newTrick();
+  setInterval(newTrick, 6*1000);
+});
+
+  </script>
 </body>
 </html>
