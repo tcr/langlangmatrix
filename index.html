@@ -43,6 +43,7 @@
         <th>Python</th>
         <th>Lua</th>
         <th>Haskell</th>
+        <th>OCaml</th>
       </tr>
 
       <tr>
@@ -68,10 +69,12 @@
           <a href="http://github.com/tcr/colony-js">Colony</a>
         </td>
         <td class="no">N/A</td>
+        <td class="no">N/A</td>
       </tr>
       <tr>
         <th>C/C++</th>
         <td class="yay"><a href="http://emscripten.org/">Emscripten</a></td>
+        <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
@@ -95,6 +98,7 @@
           <a href="http://code.google.com/p/cibyl/">Cibyl (J2ME)</a>
           <a href="http://nestedvm.ibex.org/">NestedVM</a>
         </td>
+        <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
@@ -130,6 +134,7 @@
         </td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
+        <td class="no">N/A</td>
       </tr>
       <tr>
         <th>PHP</th>
@@ -148,12 +153,14 @@
         <td class="yay"><a href="http://code.google.com/p/phppython/">phppython</a></td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
+        <td class="no">N/A</td>
       </tr>
       <tr>
         <th>Scala</th>
         <td class="yay">
           <a href="http://scalagwt.github.com/">Scala+GWT</a>
         </td>
+        <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
@@ -183,6 +190,7 @@
         <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
+        <td class="no">N/A</td>
       </tr>
       <tr>
         <th>Clojure</th>
@@ -199,6 +207,7 @@
         <td class="no">N/A</td>
         <td class="yay"><a href="https://github.com/halgari/clojure-py.git">clojure-py</a></td>
         <td class="yay"><a href="https://github.com/raph-amiard/clojurescript-lua.git">clojurescript-lua</a></td>
+        <td class="no">N/A</td>
         <td class="no">N/A</td>
       </tr>
       <tr>
@@ -226,6 +235,7 @@
         <td class="yay">
           <a href="https://github.com/bjpop/berp/wiki">Berp</a>
         </td>
+        <td class="no">N/A</td>
       </tr>
       <tr>
         <th>Lua</th>
@@ -235,6 +245,7 @@
         </td>
         <td class="no">N/A</td>
         <td class="yay"><a href="http://luaj.org/">luaj</a></td>
+        <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
@@ -269,6 +280,24 @@
         </td>
         <td class="no">N/A</td>
         <td class="no">N/A</td>
+        <td class="no">N/A</td>
+      </tr>
+      <tr>
+        <th>OCaml</th>
+        <td class="yay">
+          <a href="http://ocsigen.org/js_of_ocaml/">JS_of_ocaml</a>
+        </td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
+        <td class="no">N/A</td>
       </tr>
     </table>
   </div>
@@ -290,7 +319,7 @@
   <script>
 
 function range (a, b) {
-  return Array(b - a + 1).join(' ').split('').map(function (_, i) { 
+  return Array(b - a + 1).join(' ').split('').map(function (_, i) {
     return i + a;
   });
 }
@@ -357,7 +386,7 @@ $(function () {
       }
     }
   }
-  
+
   newTrick();
   setInterval(newTrick, 5*1000);
 });
