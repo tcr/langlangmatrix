@@ -375,7 +375,7 @@ $(function () {
       }
       if (t2 == t) {
         // Don't be too obvious.
-        if (links.length == 1 || (links.length == 2 && Math.random() < 0.5)) {
+        if (links.length == 1 || (links.length < 3 && Math.random() < 0.5)) {
           continue;
         }
 
